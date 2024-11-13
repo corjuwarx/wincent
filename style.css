@@ -11,50 +11,45 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: 'UnifrakturMaguntia', cursive; /* Yeni font */
-    position: relative; /* Burası eklendi */
+    font-family: 'UnifrakturMaguntia', cursive;
+    position: relative;
 }
 
-/* Arka Plan */
 .background {
     position: absolute;
     width: 100%;
     height: 100%;
     background: url('https://media.giphy.com/media/vYqSjTvyklaaq1YYPW/giphy.gif?cid=ecf05e47b4q7veutdq22babzwbc5hypzamyo1dv2ozlnb59y&ep=v1_gifs_search&rid=giphy.gif&ct=g') no-repeat center center/cover;
-    filter: blur(1px) brightness(0.5); /* Burada ışık ayarını düzelttim */
-    z-index: -2; /* Arka planda olmasını sağlamak için */
+    filter: blur(1px) brightness(0.5);
+    z-index: -2;
 }
 
-/* Orta Yazı */
 .center-text {
     color: #ff1e56;
     font-size: 4em;
     text-shadow: 0 0 20px rgba(255, 30, 86, 0.8), 0 0 30px rgba(255, 0, 0, 0.7);
     position: relative;
-    z-index: 1; /* Yazının ön planda olması için */
+    z-index: 1;
     animation: glow 2s infinite alternate;
 }
 
-/* Orta Yazı Parlama Animasyonu */
 @keyframes glow {
     0% { text-shadow: 0 0 10px #ff1e56, 0 0 20px #ff0000; }
     100% { text-shadow: 0 0 30px #ff1e56, 0 0 40px #ff0000; }
 }
 
-/* Bağlantılar (Logolar) */
 .links {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1; /* Linklerin yazı ile aynı seviyede olması için */
+    z-index: 1;
 }
 
-/* Logoların boyutları ve aralığı */
 .links img {
     width: 50px;
     height: 50px;
-    margin: 0 15px; /* Aradaki mesafeyi artırdım */
+    margin: 0 15px;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -62,17 +57,19 @@ body {
     transform: scale(1.1);
 }
 
-/* Mobil cihazlar için medya sorgusu */
 @media (max-width: 768px) {
-    /* Orta yazının boyutunu küçültüyoruz */
     .center-text {
         font-size: 2.5em;
+        margin-bottom: 20px;
     }
 
-    /* Logoların boyutunu küçültüyoruz */
+    .links {
+        bottom: 80px;
+    }
+
     .links img {
         width: 40px;
         height: 40px;
-        margin: 0 10px; /* Aralıkları küçültüyoruz */
+        margin: 0 10px;
     }
 }
