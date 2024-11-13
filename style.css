@@ -40,7 +40,7 @@ body {
 
 .links {
     position: absolute;
-    bottom: 20px;
+    bottom: 100px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -50,14 +50,13 @@ body {
 }
 
 .links a {
-    display: block;
+    display: inline-block;
     margin: 0 10px;
 }
 
 .links img {
     width: 50px;
     height: 50px;
-    border: none;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -72,7 +71,7 @@ body {
     }
 
     .links {
-        bottom: 80px;
+        bottom: 120px;
     }
 
     .links img {
