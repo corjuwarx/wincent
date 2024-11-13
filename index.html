@@ -6,6 +6,7 @@
     <title>Wincent</title>
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
     <link rel="icon" href="images/favicon.jpg" type="image/jpg">
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,5 +24,20 @@
             <img src="images/steam-social-media-svgrepo-com.svg" alt="Steam Logo">
         </a>
     </div>
+
+    <script>
+        
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+          console.log('Service Worker başarıyla kaydedildi: ', registration);
+        })
+        .catch((error) => {
+          console.log('Service Worker kaydedilirken hata oluştu: ', error);
+        });
+    });
+  }
+</script>
 </body>
 </html>
