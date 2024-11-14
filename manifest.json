@@ -2,7 +2,7 @@
   "name": "Wincent",
   "short_name": "Wincent",
   "description": "Wincent Progressive Web App",
-  "start_url": "/wincent/",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#0a0a0a",
   "theme_color": "#ff1e56",
