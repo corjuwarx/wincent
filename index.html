@@ -17,25 +17,38 @@
     <h1 class="center-text">Wincent</h1>
 
     <div class="links">
+        <!-- GitHub Bağlantısı -->
         <a href="https://github.com/corjuwarx" target="_blank">
-            <img src="images/github-svgrepo-com.svg" alt="GitHub Logo">
+            <img src="images/github.svg" alt="GitHub Logo">
         </a>
+        
+        <!-- Steam Bağlantısı -->
         <a href="https://steamcommunity.com/id/corjuwarx" target="_blank">
-            <img src="images/steam-social-media-svgrepo-com.svg" alt="Steam Logo">
+            <img src="images/steam.svg" alt="Steam Logo">
+        </a>
+
+        <!-- Gmail Bağlantısı -->
+        <a href="corjuwarx@gmail.com" target="_blank">
+            <img src="images/gmail.svg" alt="Gmail Logo">
+        </a>
+
+        <!-- Instagram Bağlantısı -->
+        <a href="https://instagram.com/corjuwarx" target="_blank">
+            <img src="images/instagram.svg" alt="Instagram Logo">
         </a>
     </div>
 
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/wincent/service-worker.js')
-      .then(registration => {
-        console.log('Service Worker registered with scope:', registration.scope);
-      })
-      .catch(error => {
-        console.error('Service Worker registration failed:', error);
-      });
-  }
-</script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/wincent/service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch(error => {
+                    console.error('Service Worker registration failed:', error);
+                });
+        }
+    </script>
     
 </body>
 </html>
