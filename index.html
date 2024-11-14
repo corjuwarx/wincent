@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="background"></div>
+    <div class="background" id="background"></div>
     <div class="pentagram left"></div>
     <div class="pentagram right"></div>
     <div class="devil"></div>
@@ -27,7 +27,7 @@
             <img src="images/steam.svg" alt="Steam Logo">
         </a>
 
-        <!-- Gmail Bağlantısı -->
+        <!-- Gmail Bağlantısı (DÜZELTİLMİŞ) -->
         <a href="mailto:corjuwarx@gmail.com" target="_blank">
             <img src="images/gmail.svg" alt="Gmail Logo">
         </a>
@@ -38,22 +38,34 @@
         </a>
     </div>
 
+    <!-- Buttons to change GIFs -->
     <div class="gif-buttons">
-        
-        <button class="gif-button left">&#8592;</button>
-        <button class="gif-button right">&#8594;</button>
+        <button class="gif-button left" onclick="changeGif('left')">←</button>
+        <button class="gif-button right" onclick="changeGif('right')">→</button>
     </div>
 
     <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/wincent/service-worker.js')
-                .then(registration => {
-                    console.log('Service Worker registered with scope:', registration.scope);
-                })
-                .catch(error => {
-                    console.error('Service Worker registration failed:', error);
-                });
+        let gifs = [
+            'https://media.giphy.com/media/M1eywuYhDbhwvsJA6g/giphy.gif?cid=ecf05e47d11dhbcfxu7fvhxuzv849gdt2ygi2oaurc5smsng&ep=v1_gifs_related&rid=giphy.gif&ct=g',
+            'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3dxdGl0dDdvMG5tN3M2aWlnMGtsYzVsdTY3eHp5M3h3czVqODN0dSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/8SNHEWM66EE9WF5xUi/giphy.gif',
+            'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExenBlNHczeThlMzg2ZDk2YWw2czI3Z2llM3A3cjJpNHhiOW1sYjlleiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ft1NZYSKYtL6AWKPZO/giphy.gif'
+        ];
+        
+        let currentGifIndex = 0;
+
+        function changeGif(direction) {
+            if (direction === 'left') {
+                currentGifIndex = (currentGifIndex - 1 + gifs.length) % gifs.length;
+            } else if (direction === 'right') {
+                currentGifIndex = (currentGifIndex + 1) % gifs.length;
+            }
+            document.getElementById('background').style.backgroundImage = `url('${gifs[currentGifIndex]}')`;
         }
+
+        window.onload = function() {
+            document.getElementById('background').style.backgroundImage = `url('${gifs[currentGifIndex]}')`;
+        };
     </script>
+    
 </body>
 </html>
