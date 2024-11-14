@@ -64,7 +64,10 @@ body {
     color: #ff1e56;
     font-size: 4em;
     text-shadow: 0 0 20px rgba(255, 30, 86, 0.8), 0 0 30px rgba(255, 0, 0, 0.7);
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 1;
     animation: glow 2s infinite alternate;
 }
