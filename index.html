@@ -25,15 +25,17 @@
         </a>
     </div>
 
+    <button onclick="alert('PWA Başarıyla Yüklendi!')">Test Butonu</button>
+
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-               navigator.serviceWorker.register('/wincent/service-worker.js')
+                navigator.serviceWorker.register('/service-worker.js')
                     .then((registration) => {
-                        console.log('Service Worker başarıyla kaydedildi: ', registration);
+                        console.log('Service Worker başarıyla kaydedildi:', registration);
                     })
                     .catch((error) => {
-                        console.log('Service Worker kaydedilirken hata oluştu: ', error);
+                        console.log('Service Worker kaydedilirken hata oluştu:', error);
                     });
             });
         }
