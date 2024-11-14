@@ -6,7 +6,8 @@ const urlsToCache = [
   '/script.js',
   '/images/favicon.jpg',
   '/images/github-svgrepo-com.svg',
-  '/images/steam-social-media-svgrepo-com.svg'
+  '/images/steam-social-media-svgrepo-com.svg',
+  'https://corjuwarx.github.io/wincent/wincent-update.patch'
 ];
 
 self.addEventListener('install', (event) => {
