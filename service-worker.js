@@ -1,50 +1,43 @@
-const CACHE_NAME = 'my-cache-v1';
-const urlsToCache = [
+const CACHE_NAME = 'my-cache-v2';
+
+const staticAssets = [
   '/',
   '/index.html',
-  '/style.css',
-  '/script.js',
-  '/images/favicon.jpg',
-  '/images/github-svgrepo-com.svg',
-  '/images/steam-social-media-svgrepo-com.svg',
-  'https://corjuwarx.github.io/wincent/wincent-update.patch'
+];
+
+const dynamicAssets = [
+  '/api/data', 
 ];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        return cache.addAll(urlsToCache).catch((error) => {
-          console.error("Önbelleğe dosya eklenirken hata oluştu:", error);
-        });
-      })
-  );
+  // ...
 });
 
 self.addEventListener('activate', (event) => {
-  const cacheWhitelist = [CACHE_NAME];
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (!cacheWhitelist.includes(cacheName)) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
+  // ...
 });
 
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-      return fetch(event.request);
-    }).catch((error) => {
-      console.error("Fetch sırasında hata oluştu:", error);
-    })
-  );
+  const request = event.request;
+  const url = new URL(request.url);
+
+  if (staticAssets.includes(url.pathname)) {
+    event.respondWith(
+      caches.match(request)
+        .then(response => response || fetch(request))
+        .catch(error => console.error('Fetch error:', error))
+    );
+  } else if (dynamicAssets.includes(url.pathname)) {
+    event.respondWith(
+      fetch(request)
+        .then(response => {
+          const responseClone = response.clone();
+          caches.open(CACHE_NAME).then(
+            cache => cache.put(request, responseClone)
+          );
+          return response;
+        })
+        .catch(error => caches.match(request))
+    );
+  }
 });
