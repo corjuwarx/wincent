@@ -3,7 +3,10 @@ const urlsToCache = [
   '/',
   '/index.html',
   '/style.css',
-  '/script.js'
+  '/script.js',
+  '/images/favicon.jpg',
+  '/images/github-svgrepo-com.svg',
+  '/images/steam-social-media-svgrepo-com.svg'
 ];
 
 self.addEventListener('install', (event) => {
@@ -17,7 +20,6 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('activate', (event) => {
   const cacheWhitelist = [CACHE_NAME];
-  
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
@@ -33,12 +35,4 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request)
-      .then((cachedResponse) => {
-        if (cachedResponse) {
-          return cachedResponse;
-        }
-        return fetch(event.request);
-      })
-  );
-});
+    c
