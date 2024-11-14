@@ -11,38 +11,38 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
-    <div class="background"></div>
+    <div class="background" id="background"></div>
+
     <!-- Particles Container -->
     <div id="particles-js"></div>
+
     <div class="pentagram left"></div>
     <div class="pentagram right"></div>
     <div class="devil"></div>
     <h1 class="center-text">Wincent</h1>
 
     <div class="links">
-        <!-- GitHub Bağlantısı -->
         <a href="https://github.com/corjuwarx" target="_blank">
             <img src="images/github.svg" alt="GitHub Logo">
         </a>
-        
-        <!-- Steam Bağlantısı -->
         <a href="https://steamcommunity.com/id/corjuwarx" target="_blank">
             <img src="images/steam.svg" alt="Steam Logo">
         </a>
-
-        <!-- Gmail Bağlantısı -->
         <a href="mailto:corjuwarx@gmail.com" target="_blank">
             <img src="images/gmail.svg" alt="Gmail Logo">
         </a>
-
-        <!-- Instagram Bağlantısı -->
         <a href="https://instagram.com/corjuwarx" target="_blank">
             <img src="images/instagram.svg" alt="Instagram Logo">
         </a>
     </div>
 
+    <!-- GIF değişim butonları -->
+    <div class="gif-buttons">
+        <button class="gif-button left" onclick="changeGif('left')">←</button>
+        <button class="gif-button right" onclick="changeGif('right')">→</button>
+    </div>
+
     <script>
-        // Particles.js Konfigürasyonu
         particlesJS('particles-js', {
             particles: {
                 number: {
@@ -126,6 +126,27 @@
             },
             retina_detect: true
         });
+
+        let gifs = [
+            'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGNrbjF6MGZ0bTdpa21ybGpzaHRvMDUzbnZtem9lOWF3NXFsc3JodiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pH5EjkM3brgpr4wu57/giphy.gif,
+            'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3dxdGl0dDdvMG5tN3M2aWlnMGtsYzVsdTY3eHp5M3h3czVqODN0dSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/8SNHEWM66EE9WF5xUi/giphy.gif',
+            'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExenBlNHczeThlMzg2ZDk2YWw2czI3Z2llM3A3cjJpNHhiOW1sYjlleiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ft1NZYSKYtL6AWKPZO/giphy.gif'
+        ];
+        
+        let currentGifIndex = 0;
+
+        function changeGif(direction) {
+            if (direction === 'left') {
+                currentGifIndex = (currentGifIndex - 1 + gifs.length) % gifs.length;
+            } else if (direction === 'right') {
+                currentGifIndex = (currentGifIndex + 1) % gifs.length;
+            }
+            document.getElementById('background').style.backgroundImage = `url('${gifs[currentGifIndex]}')`;
+        }
+
+        window.onload = function() {
+            document.getElementById('background').style.backgroundImage = `url('${gifs[currentGifIndex]}')`;
+        };
     </script>
 </body>
 </html>
