@@ -26,34 +26,3 @@
             <img src="images/instagram.svg" alt="Instagram Logo">
         </a>
     </div>
-
-    <div class="gif-buttons">
-        <button class="gif-button left" onclick="changeGif('left')">←</button>
-        <button class="gif-button right" onclick="changeGif('right')">→</button>
-    </div>
-
-    <script>
-        let gifs = [
-            'https://media1.tenor.com/m/8-6L8g6bsOYAAAAC/penitent-one-blasphemy.gif',
-            'https://media1.tenor.com/m/oyWTUndn2tcAAAAd/pen.gif',
-            'https://media1.tenor.com/m/Ndafi8BYiA8AAAAd/blasphemous-penitent-one.gif',
-            
-        ];
-
-        let currentGifIndex = 0;
-
-        function changeGif(direction) {
-            if (direction === 'left') {
-                currentGifIndex = (currentGifIndex - 1 + gifs.length) % gifs.length;
-            } else if (direction === 'right') {
-                currentGifIndex = (currentGifIndex + 1) % gifs.length;
-            }
-            document.getElementById('background').style.backgroundImage = `url('${gifs[currentGifIndex]}')`;
-        }
-
-        window.onload = function() {
-            document.getElementById('background').style.backgroundImage = `url('${gifs[currentGifIndex]}')`;
-        };
-    </script>
-</body>
-</html>
