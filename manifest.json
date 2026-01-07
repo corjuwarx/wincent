@@ -1,20 +1,20 @@
 {
-  "name": "Wincent",
-  "short_name": "Wincent",
-  "description": "Wincent Progressive Web App",
-  "start_url": "/wincent/index.html",
+  "name": "deniz",
+  "short_name": "deniz",
+  "description": "deniz Progressive Web App",
+  "start_url": "/deniz/index.html",
   "scope": "/",
   "display": "standalone",
   "background_color": "#0a0a0a",
   "theme_color": "#ff1e56",
   "icons": [
     {
-      "src": "/wincent/images/favicon.jpg",
+      "src": "/deniz/images/favicon.jpg",
       "sizes": "192x192",
       "type": "image/jpg"
     },
     {
-      "src": "/wincent/images/favicon.jpg",
+      "src": "/deniz/images/favicon.jpg",
       "sizes": "512x512",
       "type": "image/jpg"
     }
